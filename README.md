@@ -1,4 +1,4 @@
-# deed-validator
+# Deed Validator
 
 ## Setup
 Requires [uv](https://docs.astral.sh/uv/)
@@ -8,6 +8,9 @@ cp .env.example .env # add your OPENAI_API_KEY
 uv run main.py
 ```
 ## Expected output
+The provided deed contains two errors: the recorded date precedes the signed date,
+and the numeric amount ($1,250,000) doesn't match the written-out amount (One Million Two Hundred Thousand Dollars).
+This is the output on running the validator:
 
 ```
 Extracting fields with LLM...
@@ -17,7 +20,6 @@ Validating date order...
 [DATE ORDER ERROR] Date order violation: recorded 2024-01-10 is before signed 2024-01-15.
 ```
 
-The deed also contains a 50 thousand dollars discrepancy between the numeric and written-out amounts.
 The date error is caught first and halts execution - fix the dates and the amount error surfaces next:
 ```
 Extracting fields with LLM...
