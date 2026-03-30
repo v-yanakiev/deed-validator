@@ -46,7 +46,7 @@ def main() -> None:
     except DateOrderError as exception:
         print (f"\n[DATE ORDER ERROR] {exception}", file= sys.stderr)
     except AmountMismatchError as exception:
-        print(f"\n[AMOUNT MISMATCH ERROR {exception}",file=sys.stderr)
+        print(f"\n[AMOUNT MISMATCH ERROR] {exception}",file=sys.stderr)
     except CountyNotFoundError as exception:
         print(f"\n[COUNTY LOOKUP ERROR] {exception}", file=sys.stderr)
         sys.exit(1)

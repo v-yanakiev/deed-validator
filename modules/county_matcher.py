@@ -16,7 +16,7 @@ def match_county(county_raw: str, counties: list[County]) -> County:
     result = fuzz_process.extractOne(county_raw,names)
 
     if result is None:
-        raise Exception("County list is empty, could not match '{county_raw}.'")
+        raise Exception(f"County list is empty, could not match '{county_raw}.'")
     
     match, score, index = result
 

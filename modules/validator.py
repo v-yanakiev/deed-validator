@@ -14,7 +14,7 @@ def validate_amount_consistency(deed: ParsedDeed, tolerance: float = 0.01) -> No
     except ValueError:
         raise ValueError(f"Failed to convert {deed.amount_words} to number!")
     
-    if abs(deed.amount_numeric - amount_from_words > tolerance):
+    if abs(deed.amount_numeric - amount_from_words) > tolerance:
         raise AmountMismatchError(deed.amount_numeric, deed.amount_words, amount_from_words)
     
 def _words_to_number(words: str) -> float:
