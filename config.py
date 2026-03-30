@@ -4,7 +4,8 @@ DATE_FMT= "%Y-%m-%d"
 COUNTIES_FILE = Path(__file__).parent / "counties.json"
 FUZZY_THRESHOLD = 60
 
-RAW_OCR_TEXT="""*** RECORDING REQ ***
+RAW_OCR_TEXT="""\
+*** RECORDING REQ ***
 Doc: DEED-TRUST-0042
 County: S. Clara  |  State: CA
 Date Signed: 2024-01-15
