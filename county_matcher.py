@@ -16,14 +16,11 @@ def match_county(county_raw: str, counties: list[County]) -> County:
     result = fuzz_process.extractOne(county_raw,names)
 
     if result is None:
-        raise CountyNotFoundError("County list is empty, could not match '{county_raw}.'")
+        raise Exception("County list is empty, could not match '{county_raw}.'")
     
     match, score, index = result
 
     if score <FUZZY_THRESHOLD:
-        raise CountyNotFoundError(
-            f"Could not confidently match county '{county_raw}' "
-            f"(best guess: '{match}', score: {score}/100, "
-            f"threshold: {FUZZY_THRESHOLD})"
-        )
+        raise CountyNotFoundError(county_raw,match,score,FUZZY_THRESHOLD)
+    
     return counties[index]
