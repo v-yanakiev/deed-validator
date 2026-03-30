@@ -1,5 +1,4 @@
 import json
-from datetime import datetime
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -38,3 +37,15 @@ def extract_with_llm(ocr_text: str) -> ParsedDeed:
             {"role":"user","content":f"Parse this deed:\n\n{ocr_text}"}
         ],
     )
+    message_content=response.choices[0].message.content
+    if not message_content:
+        raise Exception ("No message content!")  
+
+    raw = message_content.strip()
+
+    try:
+        data=json.loads(raw)
+    except json.JSONDecodeError as exception:
+        raise ValueError("LLM returned non-JSON output:\n{raw}") from exception
+    
+    return ParsedDeed.model_validate(data)
