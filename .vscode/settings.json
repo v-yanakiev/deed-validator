@@ -1,0 +1,3 @@
+{
+  "python.analysis.pyrightConfigPath": "pyrightconfig.json"
+}
