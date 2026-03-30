@@ -28,6 +28,21 @@ def process_deed(ocr_text:str):
 def main() -> None:
     try:
         result = process_deed(RAW_OCR_TEXT)
+        parsed=result.parsed
+        
+        print("\n--- Validated Deed ---")
+        print(f"Document ID : {parsed.doc_id}" )
+        print(f"Grantor : {parsed.grantor}" )
+        print(f"Grantee : {parsed.grantee}" )
+        print(f"Signed : {parsed.date_signed.date()}" )
+        print(f"Recorded : {parsed.date_recorded.date()}" )
+        print(f"County : {result.county_name}" )
+        print(f"State : {parsed.state}" )
+        print(f"APN : {parsed.apn}" )
+        print(f"Sale Amount : {parsed.amount_numeric:,.2f}" )
+        print(f"Tax Rate : {result.tax_rate:.1%}" )
+        print(f"Closing Cost : {result.closing_cost:,.2f}" )
+        print(f"Status : {parsed.status}" )
     except DateOrderError as exception:
         print (f"\n[DATE ORDER ERROR] {exception}", file= sys.stderr)
     except AmountMismatchError as exception:
@@ -38,4 +53,5 @@ def main() -> None:
     except DeedValidationError as exception:
         print(f"\n[VALIDATION ERROR] {exception}", file=sys.stderr)
         sys.exit(1)
-        
+
+    
