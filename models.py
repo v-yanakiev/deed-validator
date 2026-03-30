@@ -1,6 +1,10 @@
 from datetime import datetime
 from pydantic import BaseModel
 
+class County(BaseModel):
+    name:     str
+    tax_rate: float
+
 class ParsedDeed(BaseModel):
     doc_id: str
     county_raw: str
