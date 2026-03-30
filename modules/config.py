@@ -1,7 +1,7 @@
 from pathlib import Path
 
 DATE_FMT= "%Y-%m-%d"
-COUNTIES_FILE = Path(__file__).parent / "counties.json"
+COUNTIES_FILE = Path(__file__).parent.parent / "counties.json"
 FUZZY_THRESHOLD = 60
 
 RAW_OCR_TEXT="""\
