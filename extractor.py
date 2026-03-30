@@ -6,6 +6,7 @@ from openai import OpenAI
 from models import ParsedDeed
 
 load_dotenv()
+client= OpenAI()
 
 SYSTEM_PROMPT= """\
 You are a document parser. Extract fields from a raw OCR deed and return them as a single JSON object.
@@ -27,3 +28,13 @@ Required keys:
     apn (string)
     status (string)
 """
+
+def extract_with_llm(ocr_text: str) -> ParsedDeed:
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        response_format={"type":"json_object"},
+        messages=[
+            {"role":"system", "content":SYSTEM_PROMPT},
+            {"role":"user","content":f"Parse this deed:\n\n{ocr_text}"}
+        ],
+    )
