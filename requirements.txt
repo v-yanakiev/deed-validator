@@ -2,3 +2,4 @@ openai
 rapidfuzz
 word2number
 python-dotenv
+pydantic
