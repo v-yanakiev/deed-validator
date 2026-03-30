@@ -16,8 +16,17 @@ Validating date order...
 
 [DATE ORDER ERROR] Date order violation: recorded 2024-01-10 is before signed 2024-01-15.
 ```
+
 The deed also contains a 50 thousand dollars discrepancy between the numeric and written-out amounts.
-The date error is caught first and halts execution - fix the dates and the amount error surfaces next.
+The date error is caught first and halts execution - fix the dates and the amount error surfaces next:
+```
+Extracting fields with LLM...
+Matching county...
+Validating date order...
+Validating amount consistency...
+
+[AMOUNT MISMATCH ERROR] Amount mismatch: numeric figure is $1,250,000.00 but written words resolve to $1,200,000.00 (difference: $50,000.00).
+```
 
 ## Approach
 
@@ -30,7 +39,7 @@ All validation is done in deterministic Python code afterward.
 Caught with a simple `date_recorded < date_signed` comparison.
 
 ### Amount mismatch
-`word2number` independently parses the written-out amount.
+`numerizer` independently parses the written-out amount.
 In our case, we flag the discrepancy of 50 thousand dollars and reject the deed
 
 ### County matching

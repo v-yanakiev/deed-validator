@@ -46,20 +46,20 @@ name = "deed-validator"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "numerizer" },
     { name = "openai" },
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "rapidfuzz" },
-    { name = "word2number" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "numerizer", specifier = ">=0.2.4" },
     { name = "openai", specifier = ">=2.30.0" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "rapidfuzz", specifier = ">=3.14.3" },
-    { name = "word2number", specifier = ">=1.1" },
 ]
 
 [[package]]
@@ -166,6 +166,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/47/66/eea81dfff765ed66c68fd2ed8c96245109e13c896c2a5015c7839c92367e/jiter-0.13.0-cp314-cp314t-win32.whl", hash = "sha256:24dc96eca9f84da4131cdf87a95e6ce36765c3b156fc9ae33280873b1c32d5f6", size = 201196, upload-time = "2026-02-02T12:37:19.101Z" },
     { url = "https://files.pythonhosted.org/packages/ff/32/4ac9c7a76402f8f00d00842a7f6b83b284d0cf7c1e9d4227bc95aa6d17fa/jiter-0.13.0-cp314-cp314t-win_amd64.whl", hash = "sha256:0a8d76c7524087272c8ae913f5d9d608bd839154b62c4322ef65723d2e5bb0b8", size = 204215, upload-time = "2026-02-02T12:37:20.495Z" },
     { url = "https://files.pythonhosted.org/packages/f9/8e/7def204fea9f9be8b3c21a6f2dd6c020cf56c7d5ff753e0e23ed7f9ea57e/jiter-0.13.0-cp314-cp314t-win_arm64.whl", hash = "sha256:2c26cf47e2cad140fa23b6d58d435a7c0161f5c514284802f25e87fddfe11024", size = 187152, upload-time = "2026-02-02T12:37:22.124Z" },
+]
+
+[[package]]
+name = "numerizer"
+version = "0.2.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bb/63/f8e3c8feb34814ed30d1fbea3c2785d277f58ee691f1e0f7f45a3ba6c43c/numerizer-0.2.4.tar.gz", hash = "sha256:2093849f05eb803ddb4643414a23cd1736c63112c98874cd40adebf5cf86de24", size = 6936, upload-time = "2024-09-26T08:38:58.614Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bd/33/3f516a6fc3c9c4d31e2baf0c22c0acc13d8d4bed56f5bb8e17f250775f27/numerizer-0.2.4-py2.py3-none-any.whl", hash = "sha256:4d5bb2630e5137cbcb1014069e6206e3c7748f7ee8dc18a0d22fbc1fcfd010e4", size = 7266, upload-time = "2024-09-26T08:36:59.169Z" },
 ]
 
 [[package]]
@@ -357,9 +366,3 @@ sdist = { url = "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac
 wheels = [
     { url = "https://files.pythonhosted.org/packages/dc/9b/47798a6c91d8bdb567fe2698fe81e0c6b7cb7ef4d13da4114b41d239f65d/typing_inspection-0.4.2-py3-none-any.whl", hash = "sha256:4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7", size = 14611, upload-time = "2025-10-01T02:14:40.154Z" },
 ]
-
-[[package]]
-name = "word2number"
-version = "1.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/4a/29/a31940c848521f0725f0df6b25dca8917f13a2025b0e8fcbe5d0457e45e6/word2number-1.1.zip", hash = "sha256:70e27a5d387f67b04c71fbb7621c05930b19bfd26efd6851e6e0f9969dcde7d0", size = 9723, upload-time = "2017-06-02T15:45:14.488Z" }

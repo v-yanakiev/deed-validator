@@ -1,6 +1,6 @@
 from modules.exceptions import AmountMismatchError, DateOrderError
 from modules.models import ParsedDeed
-from word2number import w2n
+from numerizer import numerize
 
 def validate_date_order(deed: ParsedDeed)->None:
     if deed.date_recorded <deed.date_signed:
@@ -18,4 +18,4 @@ def validate_amount_consistency(deed: ParsedDeed, tolerance: float = 0.01) -> No
         raise AmountMismatchError(deed.amount_numeric, deed.amount_words, amount_from_words)
     
 def _words_to_number(words: str) -> float:
-    return float(w2n.word_to_num(words))  # type: ignore[reportUnknownMemberType]
+    return float(numerize(words)) 
