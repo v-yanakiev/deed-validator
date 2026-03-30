@@ -11,3 +11,19 @@ def load_counties(path: Path = COUNTIES_FILE) -> list[County]:
     with path.open() as file_handle:
         return [County.model_validate(c) for c in json.load(file_handle)]
 
+def match_county(county_raw: str, counties: list[County]) -> County:
+    names = [c.name for c in counties]
+    result = fuzz_process.extractOne(county_raw,names)
+
+    if result is None:
+        raise CountyNotFoundError("County list is empty, could not match '{county_raw}.'")
+    
+    match, score, index = result
+
+    if score <FUZZY_THRESHOLD:
+        raise CountyNotFoundError(
+            f"Could not confidently match county '{county_raw}' "
+            f"(best guess: '{match}', score: {score}/100, "
+            f"threshold: {FUZZY_THRESHOLD})"
+        )
+    return counties[index]
