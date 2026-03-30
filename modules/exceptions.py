@@ -25,7 +25,7 @@ class AmountMismatchError(DeedValidationError):
         diff=abs(amount_numeric-amount_from_words)
 
         super().__init__(
-            f"Amount mismatch: numeric figure is ${amount_numeric:,.2f}"
+            f"Amount mismatch: numeric figure is ${amount_numeric:,.2f} "
             f"but written words resolve to ${amount_from_words:,.2f} "
             f"(difference: ${diff:,.2f})."
         )
