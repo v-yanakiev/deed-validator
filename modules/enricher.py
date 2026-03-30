@@ -1,4 +1,4 @@
-from models import County, ParsedDeed, ValidatedDeed
+from modules.models import County, ParsedDeed, ValidatedDeed
 
 def enrich_with_tax_rate(deed: ParsedDeed, county: County) -> ValidatedDeed:
     tax_rate= county.tax_rate

@@ -1,11 +1,11 @@
 import sys
 
-from config import RAW_OCR_TEXT
-from county_matcher import load_counties, match_county
-from enricher import enrich_with_tax_rate
-from exceptions import AmountMismatchError, CountyNotFoundError, DateOrderError, DeedValidationError
-from extractor import extract_with_llm
-from validator import validate_amount_consistency, validate_date_order
+from modules.config import RAW_OCR_TEXT
+from modules.county_matcher import load_counties, match_county
+from modules.enricher import enrich_with_tax_rate
+from modules.exceptions import AmountMismatchError, CountyNotFoundError, DateOrderError, DeedValidationError
+from modules.extractor import extract_with_llm
+from modules.validator import validate_amount_consistency, validate_date_order
 
 
 def process_deed(ocr_text:str):

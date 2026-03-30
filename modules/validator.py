@@ -1,5 +1,5 @@
 from exceptions import AmountMismatchError, DateOrderError
-from models import ParsedDeed
+from modules.models import ParsedDeed
 from word2number import w2n
 
 def validate_date_order(deed: ParsedDeed)->None:

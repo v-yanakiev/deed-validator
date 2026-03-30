@@ -2,7 +2,7 @@ import json
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from models import ParsedDeed
+from modules.models import ParsedDeed
 
 load_dotenv()
 client= OpenAI()
