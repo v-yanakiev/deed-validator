@@ -28,6 +28,29 @@ Validating amount consistency...
 [AMOUNT MISMATCH ERROR] Amount mismatch: numeric figure is $1,250,000.00 but written words resolve to $1,200,000.00 (difference: $50,000.00).
 ```
 
+If this error is also fixed, the validated deed is presented:
+```
+Extracting fields with LLM...
+Matching county...
+Validating date order...
+Validating amount consistency...
+Enriching with tax data...
+
+--- Validated Deed ---
+Document ID : DEED-TRUST-0042
+Grantor : TESLA Holdings LLC
+Grantee : John & Sarah Connor
+Signed : 2024-01-10
+Recorded : 2024-01-15
+County : Santa Clara
+State : CA
+APN : 992-001-XA
+Sale Amount : 1,200,000.00
+Tax Rate : 1.2%
+Closing Cost : 14,400.00
+Status : PRELIMINARY
+```
+
 ## Approach
 
 ### AI is isolated to one step
@@ -40,7 +63,7 @@ Caught with a simple `date_recorded < date_signed` comparison.
 
 ### Amount mismatch
 `numerizer` independently parses the written-out amount.
-In our case, we flag the discrepancy of 50 thousand dollars and reject the deed
+In our case, we flag the discrepancy of 50 thousand dollars and reject the deed.
 
 ### County matching
 `rapidfuzz` fuzzy-matches "S.Clara" -> "Santa Clara" with a confidence threshold.
